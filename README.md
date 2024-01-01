@@ -8,12 +8,10 @@ To run the project(python already installed):
     1. install django: "pip install Django"
     2. check the version of django: "django --version"
     3. gh repo clone 09parthchauhan/Smart-Bidding 
-    
-    NOTE: you will find different modules not installed eg: no module named "PIL" found. You have to install the different modules using pip and you can find the packages at "pypi.org". Also install latest version of bootstrap as for frontend it has been used.
-
     4. python manage.py createsuper
     5. python manage.py makemigrations
     6. python manage.py migrate
     7. python manage.py runserver
 
+ NOTE: you will find different modules not installed eg: no module named "PIL" found. You have to install the different modules using pip and you can find the packages at "pypi.org". Also install latest version of bootstrap as for frontend it has been used.
     
