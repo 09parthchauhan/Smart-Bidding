@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Smart Bidding</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="google-signin-client_id" content="817317374156-da72sap1iblur1vgevbr4bqu67pp7fj5.apps.googleusercontent.com">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6e7069af17.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<style>
+    body, html {
+    height: 100%;
+}
+    
+.topnav {
+    background-color: whitesmoke;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #36454F;
+    text-align: center;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family:'   Source Sans Pro', sans-serif;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: Black;
+    color: white;
+  }
+  .topnav-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
+</style>
+
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="{% url 'Buyer:index' %}">Home</a>
+        <a href="{% url 'Seller:add_product' %}">Add Product</a>
+        <a href="{% url 'Seller:my_product' %}">My Product</a>
+        <a href="{% url 'Seller:myorders' %}">My Orders</a>
+       <!--<a href="{% url 'Seller:profile' %}">{{request.user.username}}</a>--> 
+       <a href="{% url 'Seller:live' %}">Live</a>
+        <a href="{% url 'Buyer:logout' %}">Logout</a>
+      </div>
+    <!-- <div class="container-fluid h-100">
+        <div class="row h-100"> -->
+            <!-- <aside class="col-12 col-md-2 fixed-top" style="background-color: grey;" >
+                <nav class="navbar navbar-expand flex-md-column flex-row align-items-start py-2">
+                    <div class="collapse navbar-collapse align-items-start">
+                        <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                            <li class="nav-item">
+                                <a class="nav-link pl-0 text-nowrap" href="#"><span><img src="{% static 'image/E-AUC2.png' %}" height="30" width="auto"></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="{% url 'Buyer:index' %}"> <span class="d-none d-md-inline text-white">Home</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="{% url 'Seller:add_product' %}"> <span class="d-none d-md-inline text-white">Add Product</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="{% url 'Seller:my_product' %}"> <span class="d-none d-md-inline text-white">My Product</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="{% url 'Seller:myorders' %}"> <span class="d-none d-md-inline text-white">My Orders</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="{% url 'Seller:profile' %}"><span class="d-none d-md-inline text-white">{{request.user.username}}</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="{% url 'Buyer:logout' %}"><span class="d-none d-md-inline text-white">Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside> -->
+           <!--  <main class="col offset-md-2 py-3"> -->
+                {% block content %}
+                {% endblock content %}
+            </main>
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/mdb.min.js' %}"></script>
+</html>				

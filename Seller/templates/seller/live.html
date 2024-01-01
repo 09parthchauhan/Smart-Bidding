@@ -1,0 +1,120 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load app_tags %}
+{% now "Y-m-d-H-i-s" as todays_date %}
+{% block content %}
+<br/>
+<h4 style="margin-left: 10px; text-align: center;">Here you can see your live auctioned items</h4>
+
+<section class="popular-auction padding-top pos-rel py-5 mt-5" style="background-color: Black; background-repeat: no-repeat; background-size: auto; opacity: 1; ">
+    <div class="container">
+        <div class="section-header text-white text-center" style="font-family:Source Sans Pro', sans-serif">
+            <span class="cate">Let The Auction Begins</span>
+            <h2 class="title">Active Auctions</h2>
+            <p>Bid and win great deals,Our auction process is simple, efficient, and transparent.</p>
+        </div>
+        {% if auctions %}
+          <div class="row px-5 mt-5">
+            <div class="col-12 m-auto">
+                <div class="owl-carousel owl-theme">
+                  {% for auction in auctions %}
+                  {% if todays_date > auction.start|date:'Y-m-d-H-i-s' %}
+                    <div class="item mb-4" style="backdrop-filter: blur(10px); font-family: 'Roboto Mono', monospace">
+                      <div class="card text-white" style="background-color: #012657;">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img src="{{auction.image1.url}}" class="img-fluid" style="height: 300px;"/>
+                          <a href="#!">
+                          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                        </div>
+                        <div class="card-body">
+                          <h4 class="card-title">{{auction.product_name}}</h5>
+                          <div class="row py-2">
+                            <div class="col">
+                              <h6 class="card-title">Start: {{auction.start}}</h5>
+                            </div>
+                            <div class="col">
+                              <h6 class="card-title" style="margin-left: auto;">End: {{auction.end}}</h5>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col">
+                              <h6 class="card-title">Current Bid: {{auction.current_bid}}</h5>
+                            </div>
+                            <div class="col">
+                              <h6 class="card-title" style="margin-left: auto;">Total Bids: {{auction.total_bid}} Bids</h5>
+                            </div>
+                          </div>
+                        
+                        </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+       
+        {% else %}
+        <h2 class="title text-center text-danger" style="font-family: 'Roboto Mono', monospace;">Currently No Active Auctions</h2>
+        {% endif %}
+    </div>
+  </section>
+
+  <script>
+    var owl = $('.owl-carousel');
+        owl.owlCarousel({
+          margin: 10,
+          loop: false,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 2
+            },
+            1000: {
+              items: 3
+            }
+          }
+        });
+  function ele(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-ele1.png' %}')"
+  }
+  function ele1(x) {
+    x.style.backgroundImage = "url('{% static 'image/ele.png' %}')"
+  }
+  function wat(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-watch.png' %}')"
+  }
+  function wat1(x) {
+    x.style.backgroundImage = "url('{% static 'image/watch.png' %}')"
+  }
+  function anti(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-antique.png' %}')"
+  }
+  function anti1(x) {
+    x.style.backgroundImage = "url('{% static 'image/antique.png' %}')"
+  }
+  function sta(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-stamp.png' %}')"
+  }
+  function sta1(x) {
+    x.style.backgroundImage = "url('{% static 'image/stamp.png' %}')"
+  }
+  function per(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-perfume.png' %}')"
+  }
+  function per1(x) {
+    x.style.backgroundImage = "url('{% static 'image/perfume.png' %}')"
+  }
+  function jew(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-jewellery.png' %}')"
+  }
+  function jew1(x) {
+    x.style.backgroundImage = "url('{% static 'image/jewellery.png' %}')"
+  }
+</script>
+
+
+{% endblock content %} 

@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load app_tags %}
+{% block content %}
+{% now "Y-m-d-H-i-s" as todays_date %}
+<style>
+.wrapper .carousel{
+    white-space: nowrap;
+    
+  }
+
+.carousel img{
+  height: 340px;
+  object-fit: cover;
+  width: calc(100% / 3);
+}
+
+.carousel img:hover{
+  
+}
+
+
+.bubbles img{
+    width: 50px;
+    animation: bubble 7s linear infinite;
+}
+
+.bubbles{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -130px;
+}
+
+
+@keyframes bubble{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+
+.bubbles img:nth-child(1){
+    animation-delay: 2s;
+    width: 25px;
+}
+.bubbles img:nth-child(2){
+    animation-delay: 1s;
+}
+.bubbles img:nth-child(3){
+    animation-delay: 3s;
+    width: 120px;
+}
+.bubbles img:nth-child(4){
+    animation-delay: 4.5s;
+}
+.bubbles img:nth-child(5){
+    animation-delay: 3s;
+    width: 55px;
+}
+.bubbles img:nth-child(6){
+    animation-delay: 6s;
+    width: 120px;
+}
+.bubbles img:nth-child(7){
+    animation-delay: 7s;
+    width: 25px;
+}
+
+    @media  screen and (min-width:992px) {
+        .CoverImage {
+            background-position: Top;
+            width: 100%;
+            height: 825px;
+            background-size: 100% 85%;
+            background-repeat: no-repeat;
+            border-radius: 100%/0%;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            background-size: contain;
+    }
+    
+    }
+    @media screen and (max-width: 480px) {
+      .CoverImage{
+              background-position: center;
+              width: 100%;
+              height: 700px;
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+    
+    }
+    
+    @media screen and (max-width: 768px) {
+      .CoverImage{
+              background-position: center;
+              width: 100%;
+              height: 700px;
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+    }
+            
+    @media screen and (max-width: 1024px) {
+      .CoverImage{
+              background-position: center;
+              width: 100%;
+              height: 700px;
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+     }
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
+</style>
+<section>
+<div class="img-fluid CoverImage" style="background-image: linear-gradient(to right bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);"></div>
+<div class="bubbles">
+  <img src="{% static 'image/bubble.png' %}">
+  <img src="{% static 'image/bubble.png' %}">
+  <img src="{% static 'image/bubble.png' %}">
+  <img src="{% static 'image/bubble.png' %}">
+  <img src="{% static 'image/bubble.png' %}">
+  <img src="{% static 'image/bubble.png' %}">
+  <img src="{% static 'image/bubble.png' %}">
+</div>
+<div  class="text-center" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); color: black; font-size: 100px; font-family: 'Source Sans Pro', sans-serif">Smart Bidding<br/>
+  <h5>A platform to Buy and Sell your favorite items!!</h5>
+</div>
+<form action="/search">
+<div class="justify-content-center align-items-center input-group" style="margin-top:-350px;">
+  <span class="border border-light"></span>
+  <div class="form-outline">
+    <input type="search" name="query" id="form1" class="form-control text-Black" style="width: 350px;"/>
+    <label class="form-label text-white" for="form1">Search your items</label>
+  </div>
+  <button type="submit" class="btn" style="background-color:white; color: #2767F4;">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+</form>
+</section>
+<div class="row" style="height: 100px;">
+ <!-- <div  class="text-center" style="position: absolute;top: 67%;left: 50%;transform: translate(-50%, -50%); color: white; font-size: large; font-family: sans-serif;">Popular Categories</div> -->
+</div>
+<section>
+  <div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-6 m-auto">
+        </div>
+      </div>
+  </div>
+</section> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section id="best-features" class="text-center">
+  <h2 class="text" style="color: #012657;">How <strong>It Works</strong></h2>
+  <div class="row py-5">
+      <div class="col-md-4 mb-5">
+          <img src="{% static 'image/how1.png' %}">
+          <h4 class="my-4 font-weight-bold" style="color:#012657 ">Register</h4>
+          <p class="grey-text" style="color:#012657 ">Firstly you have to Register yourself on the website, you can either choose to be an Auctioneer or Bidder..</p>
+      </div>
+      <div class="col-md-4 mb-1">
+          <img src="{% static 'image/how2.png' %}">
+          <h4 class="my-4 font-weight-bold" style="color:#012657 ">Bid</h4>
+          <p class="grey-text" style="color:#012657 ">If you became to be an bidder, your next step would be to bid for the live auction according to you interest..</p>
+      </div>
+      <div class="col-md-4 mb-1">
+          <img src="{% static 'image/how3.png' %}">
+          <h4 class="my-4 font-weight-bold" style="color:#012657">Win</h4>
+          <p class="grey-text" style="color:#012657 ">If you found out to be the highest bidder in the given amount of time, you win th auction..</p>
+      </div>
+  </div>
+</section>
+
+  <div class="wraapper">
+    <div class="corousel">
+      <img src="{% static 'image/cat-antique.png'%}" alt="img">
+      <img src="{% static 'image/cat-ele1.png'%}" alt="img">
+      <img src="{% static 'image/cat-perfume.png'%}" alt="img">
+      <img src="{% static 'image/cat-stamp.png'%}" alt="img">
+      <img src="{% static 'image/cat-watch.png'%}" alt="img">
+      <img src="{% static 'image/cat-jewellery.png'%}" alt="img">
+    </div>
+  </div>
+
+
+<section class="popular-auction padding-top pos-rel py-5 mt-5" style="background-color: Black; background-repeat: no-repeat; background-size: auto; opacity: 1; ">
+  <div class="container">
+      <div class="section-header text-white text-center" style="font-family:Source Sans Pro', sans-serif">
+          <span class="cate">Let The Auction Begins</span>
+          <h2 class="title">Active Auctions</h2>
+          <p>Bid and win great deals,Our auction process is simple, efficient, and transparent.</p>
+      </div>
+      {% if auctions %}
+     
+        <div class="row px-5 mt-5">
+          <div class="col-12 m-auto">
+              <div class="owl-carousel owl-theme">
+                {% for auction in auctions %}
+                {% if todays_date > auction.start|date:'Y-m-d-H-i-s' %}
+                  <div class="item mb-4" style= "backdrop-filter: blur(10px); font-family: 'Roboto Mono', monospace;">
+                    <div class="card text-white" style="background-color: #012657;">
+                      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{auction.image1.url}}" class="img-fluid" style="height: 300px;"/>
+                        <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">{{auction.product_name}}</h5>
+                        <div class="row py-2">
+                          <div class="col">
+                            <h6 class="card-title">Start: {{auction.start}}</h5>
+                          </div>
+                          <div class="col">
+                            <h6 class="card-title" style="margin-left: auto;">End: {{auction.end}}</h5>
+                          </div>
+                        </div>
+                        <div class="row py-2">
+                          <div class="col">
+                            <h6 class="card-title">Current Bid: {{auction.current_bid}}</h5>
+                          </div>
+                          <div class="col">
+                            <h6 class="card-title" style="margin-left: auto;">Total Bids: {{auction.total_bid}} Bids</h5>
+                          </div>
+                        </div>
+                        
+                      <div class="row d-grip gap-2 py-3">
+                        <a href="{% url 'Buyer:index' %}product/{{auction.product_id}}" class="btn btn-outline-success">Bid Now</a>
+                      </div>
+                      </div>
+                      </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+     
+      {% else %}
+      <h2 class="title text-center text-danger" style="font-family: 'Roboto Mono', monospace;">Currently No Active Auctions</h2>
+      {% endif %}
+  </div>
+</section>
+<script>
+    var owl = $('.owl-carousel');
+        owl.owlCarousel({
+          margin: 10,
+          loop: false,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 2
+            },
+            1000: {
+              items: 3
+            }
+          }
+        });
+  function ele(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-ele1.png' %}')"
+  }
+  function ele1(x) {
+    x.style.backgroundImage = "url('{% static 'image/ele.png' %}')"
+  }
+  function wat(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-watch.png' %}')"
+  }
+  function wat1(x) {
+    x.style.backgroundImage = "url('{% static 'image/watch.png' %}')"
+  }
+  function anti(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-antique.png' %}')"
+  }
+  function anti1(x) {
+    x.style.backgroundImage = "url('{% static 'image/antique.png' %}')"
+  }
+  function sta(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-stamp.png' %}')"
+  }
+  function sta1(x) {
+    x.style.backgroundImage = "url('{% static 'image/stamp.png' %}')"
+  }
+  function per(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-perfume.png' %}')"
+  }
+  function per1(x) {
+    x.style.backgroundImage = "url('{% static 'image/perfume.png' %}')"
+  }
+  function jew(x) {
+    x.style.backgroundImage = "url('{% static 'image/cat-jewellery.png' %}')"
+  }
+  function jew1(x) {
+    x.style.backgroundImage = "url('{% static 'image/jewellery.png' %}')"
+  }
+</script>
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+
+{% endblock content %}
+    
